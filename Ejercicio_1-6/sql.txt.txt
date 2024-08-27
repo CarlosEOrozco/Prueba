@@ -1,0 +1,59 @@
+CREATE TABLE Cliente
+(
+    dni_cliente int NOT NULL PRIMARY KEY,
+    nombre varchar(50) NOT NULL,
+    apellido varchar(50) NOT NULL
+);
+
+CREATE TABLE Cuenta
+(
+    id_cuenta int NOT NULL PRIMARY KEY,
+    cbu varchar(22) NOT NULL,
+    saldo decimal(18, 2) NOT NULL,
+    tipoCuenta int NOT NULL,
+    ultimoMovimiento datetime NOT NULL,
+    FOREIGN KEY (tipoCuenta) REFERENCES TipoCuenta(id_tipoCuenta)
+);
+
+
+CREATE TABLE TipoCuenta
+(
+    id_tipoCuenta int NOT NULL PRIMARY KEY,
+    descripcion varchar(50) NOT NULL
+);
+
+
+select * from Cliente
+
+CREATE PROCEDURE InsertarCliente
+    @dni_cliente INT,
+    @nombre VARCHAR(50),
+    @apellido VARCHAR(50)
+AS
+BEGIN
+    INSERT INTO Cliente (dni_cliente, nombre, apellido)
+    VALUES (@dni_cliente, @nombre, @apellido);
+END;
+
+
+CREATE PROCEDURE InsertarTipoCuenta
+    @id_tipoCuenta INT,
+    @descripcion VARCHAR(50)
+AS
+BEGIN
+    INSERT INTO TipoCuenta (id_tipoCuenta, descripcion)
+    VALUES (@id_tipoCuenta, @descripcion);
+END;
+
+
+CREATE PROCEDURE InsertarCuenta
+    @id_cuenta INT,
+    @cbu VARCHAR(22),
+    @saldo DECIMAL(18, 2),
+    @tipoCuenta INT,
+    @ultimoMovimiento DATETIME
+AS
+BEGIN
+    INSERT INTO Cuenta (id_cuenta, cbu, saldo, tipoCuenta, ultimoMovimiento)
+    VALUES (@id_cuenta, @cbu, @saldo, @tipoCuenta, @ultimoMovimiento);
+END;
