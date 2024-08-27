@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Datos
 {
-    internal interface IBanco
+    public interface IBanco
     {
+        //metodos abstractos
+        List<Dominio.Product> GetAll();
+        Dominio.Product GetById(int id);
+        bool Save(Dominio.Product oProduct);
+        bool Delete(int id);
+
     }
 }

@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Datos.Utils
 {
-    internal class ParameterSQL
+    public class ParameterSQL
     {
+        public ParameterSQL(string name, object value)
+        {
+            Name = name;
+            Value = value;
+        }
+        public string Name { get; set; }
+        public object Value { get; set; }
     }
 }

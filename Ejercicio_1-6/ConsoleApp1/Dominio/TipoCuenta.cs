@@ -8,5 +8,11 @@ namespace ConsoleApp1.Clases
 {
     internal class TipoCuenta
     {
+        public string Nombre { get; set; }
+
+        public TipoCuenta(string nombre)
+        {
+            Nombre = nombre;
+        }
     }
 }
