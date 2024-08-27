@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Datos
+namespace ConsoleApp1.Dominio
 {
-    internal class DataHelper
+    internal class Product
     {
     }
 }
